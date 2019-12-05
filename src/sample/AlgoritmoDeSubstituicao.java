@@ -34,4 +34,3 @@ abstract class AlgoritmoDeSubstituicao {
         System.out.println();
     }
 }
-

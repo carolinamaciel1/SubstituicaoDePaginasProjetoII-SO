@@ -1,40 +1,54 @@
 package sample;
 
-import sample.AlgoritmoDeSubstituicao;
-
 import java.util.LinkedList;
 
-class MRU extends AlgoritmoDeSubstituicao {
+public class MRU {
 
+
+    private LinkedList<String> frames;
+    private int acertos, faltas, qtd_frames;
+
+    //construtor da classe
     public MRU(int frames) {
-        super(frames);
-        // TODO Auto-generated constructor stub
-        this.quadros = new LinkedList();
-
+        this.acertos = 0;
+        this.faltas = 0;
+        this.frames = new LinkedList();
+        this.qtd_frames = frames;
     }
 
-    @Override
-    public void inserir(String stringArray) {
-        // TODO Auto-generated method stub
-        String[] arrayAux = stringArray.split("W");
-        String[] arrayAux2 = arrayAux[0].split("R");
-        String pageNumber = arrayAux2[0];
+    //para pegar os acertos
+    public int getAcertos() { return acertos; }
 
-        int tmp = quadros.indexOf(pageNumber);
+    //para pegar as faltas
+    public int getFaltas() { return faltas;  }
+
+    public void MRU(String arrayEntrada) {
+
+        //o controler nós retiramos os "-" aqui nós retiramos os "W" e "R" para fazer as comparações
+        String[] arrayAux = arrayEntrada.split("W"); //retira os W
+        String[] arrayAux2 = arrayAux[0].split("R"); //retira os R
+        String pageNumber = arrayAux2[0]; //pega somente as primeiros posições
+
+        //indexOf pega a posição do elemento no frame
+        int tmp = frames.indexOf(pageNumber);
+        //para os casos de ERRO
         if (tmp == -1) {
-            if (quadros.size() < numeroDeQuadros) {
-                quadros.add(pageNumber);
+            //verifica se o frame está cheio
+            if (frames.size() < qtd_frames) {
+                //Se tiver espaço adiciona no final do vetor
+                frames.add(pageNumber);
             } else {
-
-                quadros.remove(0);
-                quadros.add(pageNumber);
+                //caso esteja cheio remove o primeiro e adiciona o valor corrente no final
+                frames.remove(0);
+                frames.add(pageNumber);
             }
-            erros++;
+            faltas++;
         } else {
-            quadros.remove(tmp);
-            quadros.add(pageNumber);
+            //para os casos de ACERTO
+            //caso ele já esteja no frame ele remove o valor na posição e adiciona no final do vetor
+            frames.remove(tmp);
+            frames.add(pageNumber);
             acertos++;
         }
     }
-
 }

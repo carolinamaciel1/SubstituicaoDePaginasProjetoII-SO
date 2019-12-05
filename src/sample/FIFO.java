@@ -1,33 +1,44 @@
 package sample;
-import sample.AlgoritmoDeSubstituicao;
 
 import java.util.LinkedList;
 
-class FIFO extends AlgoritmoDeSubstituicao {
-    private static int INSERCAO = 0;
+public class FIFO {
+    private int INSERCAO = 0;
+    private LinkedList<String> frames;
+    private int acertos, faltas, qtd_frames;
 
+    //construtor
     public FIFO(int frames) {
-        super(frames);
-        this.quadros = new LinkedList();
+        this.acertos = 0;
+        this.faltas = 0;
+        this.frames = new LinkedList();
+        this.qtd_frames = frames;
     }
 
-    @Override
-    public void inserir(String stringArray) {
-        String[] arrayAux = stringArray.split("W");
-        String[] arrayAux2 = arrayAux[0].split("R");
-        String pageNumber = arrayAux2[0];
+    public int getAcertos() { return acertos; }
+
+    public int getFaltas() { return faltas;  }
+
+    public void fifo(String arrayEntrada) {
+        //retira os W e  R do  vetor para poder tratar só os valores
+        String[] arrayAux = arrayEntrada.split("W"); //remove o W
+        String[] arrayAux2 = arrayAux[0].split("R"); //remove o R
+        String pageNumber = arrayAux2[0]; //pega os valores
 
         // antes de inserir, checar se a pagina ja esta na lista
-        if (!quadros.contains(pageNumber)) {
-            erros++;
+        if (!frames.contains(pageNumber)) {
+            faltas++;
             // se a quantidade de paginas na memoria for menor que o numero de quadros ou seja, ainda ha espaco
-            if (quadros.size() < numeroDeQuadros) {
-                quadros.add(pageNumber);
+            if (frames.size() < qtd_frames) {
+                frames.add(pageNumber);
             } else {
-                quadros.remove(INSERCAO);
-                quadros.add(INSERCAO, pageNumber);
+                //caso não seja ele remove da página e adiciona o valor no final
+                frames.remove(INSERCAO);
+                frames.add(INSERCAO, pageNumber);
+                //ponteiro para o array de frames, serve para controlar onde será adicionado (index), ele deve ser menor que a quantidade de frames
                 INSERCAO++;
-                if (INSERCAO == numeroDeQuadros) {
+                if (INSERCAO == qtd_frames) {
+                    //quando chega ao final ele volta ao início para continuar percorrendo os frames
                     INSERCAO = 0;
                 }
             }
@@ -35,5 +46,6 @@ class FIFO extends AlgoritmoDeSubstituicao {
         else {
             acertos++;
         }
+
     }
 }

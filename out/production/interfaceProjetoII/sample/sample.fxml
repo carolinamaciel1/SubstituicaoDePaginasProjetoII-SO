@@ -24,27 +24,38 @@
                         <Font size="20.0" />
                     </font>
                 </Text>
-                <TextField id="idLabelQ1" fx:id="labelQ1" layoutX="120.0" layoutY="206.0" />
-                <Text layoutX="92.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informações da quantidade de frames">
+                <TextField id="idLabelQ1" fx:id="labelQ1" layoutX="45.0" layoutY="200.0" />
+                <Text layoutX="13.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Informações da quantidade de frames">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Text>
-                <Text layoutX="92.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Q1">
+                <Text layoutX="17.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Q1">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Text>
-                <Text layoutX="323.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Q2">
+                <Text layoutX="248.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Q2">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Text>
-                <TextField id="idLabelQ2" fx:id="labelQ2" layoutX="359.0" layoutY="207.0" />
-                <Button id="btnGerarResultado" fx:id="btnGerarResultado" layoutX="70.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExecutarAlgoritmo" prefHeight="37.0" prefWidth="118.0" text="Gerar Resultado" />
-                <Button fx:id="btnSair" layoutX="433.0" layoutY="282.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" text="Sair" />
-                <Button fx:id="btnCarregarArquivo" layoutX="92.0" layoutY="109.0" mnemonicParsing="false" onAction="#CarregarArquivo" prefHeight="6.0" prefWidth="416.0" text="Carregar Arquivo " />
-            <Button layoutX="241.0" layoutY="282.0" mnemonicParsing="false" onAction="#GerarGrafico" prefHeight="37.0" prefWidth="118.0" text="Gerar Gráficos" />
+                <TextField id="idLabelQ2" fx:id="labelQ2" layoutX="284.0" layoutY="201.0" />
+                <Button id="btnGerarResultado" fx:id="btnGerarResultado" layoutX="68.0" layoutY="334.0" mnemonicParsing="false" onAction="#ExecutarAlgoritmo" prefHeight="37.0" prefWidth="118.0" text="Gerar Resultado" />
+                <Button fx:id="btnSair" layoutX="431.0" layoutY="334.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" text="Sair" />
+                <Button fx:id="btnCarregarArquivo" layoutX="92.0" layoutY="87.0" mnemonicParsing="false" onAction="#CarregarArquivo" prefHeight="6.0" prefWidth="416.0" text="Carregar Arquivo " />
+            <Button layoutX="239.0" layoutY="334.0" mnemonicParsing="false" onAction="#GerarGrafico" prefHeight="37.0" prefWidth="118.0" text="Gerar Gráficos" />
+            <Text layoutX="17.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zerésima">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField id="idLabelQ3" fx:id="idLabelQ3" layoutX="88.0" layoutY="286.0" prefHeight="20.0" prefWidth="56.0" />
+            <Text layoutX="14.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Zerésima (para o algoritmo Segunca Chance)">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
             </children>
         </Pane>
     </children>

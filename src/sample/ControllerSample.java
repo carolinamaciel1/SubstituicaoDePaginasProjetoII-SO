@@ -31,6 +31,7 @@ public class ControllerSample implements Initializable{
 
     @FXML public TextField labelQ2;
     public TextField labelQ1;
+    @FXML private TextField idLabelQ3;
     List<String> latFile;
     @FXML private Button btnCarregarArquivo;
     String[] inputs = new String[0];
@@ -40,6 +41,8 @@ public class ControllerSample implements Initializable{
     List<Integer> SEGUNDA_CHANCE = new ArrayList<Integer>();
     List<Integer> OTIMO = new ArrayList<Integer>();
 
+
+    //Botão carregar arquivo aciona o método de fazer upload do arquivo
     @FXML
     void CarregarArquivo(ActionEvent event) throws IOException {
         FileChooser fc = new FileChooser();
@@ -48,12 +51,15 @@ public class ControllerSample implements Initializable{
         List<String> temp = new ArrayList<String>();
 
         if (f != null) {
+            //lê o arquivo
             Files.lines(f.toPath()).forEach((temp::add));
+            //adiciona o conteúdo do arquivo a uma string "inputs" e retiramos os "-" usando o split
             inputs = temp.get(0).split("-");
             btnCarregarArquivo.setText(f.getAbsolutePath());
         }
     }
 
+    //código para carregar somente os arquivos TXT e txt no modo leitura
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         latFile = new ArrayList<>();
@@ -62,31 +68,47 @@ public class ControllerSample implements Initializable{
     }
 
 
+    //Este método é disparado quando clicamos no botão gerar resultado
     public void ExecutarAlgoritmo(ActionEvent actionEvent) {
+
+
         int qtdFramesf = Integer.parseInt(labelQ2.getText());
+        int zeresima = Integer.parseInt(idLabelQ3.getText());
+
         for (int qtdFramesi = Integer.parseInt(labelQ1.getText()); qtdFramesi <= qtdFramesf; qtdFramesi++) {
-            AlgoritmoDeSubstituicao mru = new MRU(qtdFramesi);
-            AlgoritmoDeSubstituicao fifo = new FIFO(qtdFramesi);
+            //Instancia de cada algoritmo
+            MRU mru = new MRU(qtdFramesi);
+            FIFO fifo = new FIFO(qtdFramesi);
+            Otimo otimo = new Otimo(qtdFramesi);
+            SC segunda_chance = new SC(qtdFramesi,zeresima);
+            NUR nur = new NUR(qtdFramesi,zeresima);
 
+            //Passando o array de string para ser tratado no método de cada algoritmo
             for (int i = 0; i < (inputs.length); i++) {
-                mru.inserir(inputs[i]);
-                fifo.inserir(inputs[i]);
-
+                mru.MRU(inputs[i]);
+                fifo.fifo(inputs[i]);
             }
-            MRU.add(mru.getPageFoundCount());
-            FIFO.add(fifo.getPageFoundCount());
-            /*System.out.println("\nMRU com " + qtdFramesi + " frames:");
-            System.out.println("Page Faults: " + mru.getPageFaultCount());
-            System.out.println("Page Acertos: " + mru.getPageFoundCount());*/
+            //aqui passamos a string inteira e a tratamos dentro de cada método
+            otimo.otimo(inputs);
+            segunda_chance.secondChance(inputs);
+            nur.NUR(inputs);
 
-            /*System.out.println("\nFIFO com " + qtdFramesi + " frames:");
-            System.out.println("Page Faults: " + mru.getPageFaultCount());
-            System.out.println("Page Acertos: " + mru.getPageFoundCount());*/
+            MRU.add(mru.getAcertos());
+            FIFO.add(fifo.getAcertos());
+            OTIMO.add(otimo.getAcertos());
+            SEGUNDA_CHANCE.add(segunda_chance.getAcertos());
+            NUR.add(nur.getAcertos());
+
         }
-        System.out.println(MRU);
-        System.out.println(FIFO);
+        System.out.println("LARANJA - MRU"+MRU);
+        System.out.println("AMARELO - FIFO"+FIFO);
+        System.out.println("VERDE - OTIMO"+OTIMO);
+        System.out.println("AZUL AQUA - SEGUNDA CHANCE"+SEGUNDA_CHANCE);
+        System.out.println("AZUL MARINHO - NUR:"+NUR);
     }
 
+    //quando disparado, esse método chama a página graph.fxml passando através do método graphController.popularGraficoXXX()
+    // as informações necessárias para gerar os gráficos
     public void GerarGrafico(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("graph.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -94,7 +116,20 @@ public class ControllerSample implements Initializable{
         Stage stage = new Stage();
         stage.setScene(new Scene(root1,700, 500));
         stage.show();
+
+    //método para popular e gerar os gráficos
         graphController.popularGraficoFIFO(Integer.parseInt(labelQ1.getText()),Integer.parseInt(labelQ2.getText()), (ArrayList<Integer>) FIFO);
         graphController.popularGraficoMRU(Integer.parseInt(labelQ1.getText()),Integer.parseInt(labelQ2.getText()), (ArrayList<Integer>) MRU);
+        graphController.popularGraficoOTIMO(Integer.parseInt(labelQ1.getText()),Integer.parseInt(labelQ2.getText()), (ArrayList<Integer>) OTIMO);
+        graphController.popularGraficoSC(Integer.parseInt(labelQ1.getText()),Integer.parseInt(labelQ2.getText()), (ArrayList<Integer>) SEGUNDA_CHANCE);
+        graphController.popularGraficoNUR(Integer.parseInt(labelQ1.getText()),Integer.parseInt(labelQ2.getText()), (ArrayList<Integer>) NUR);
+        labelQ1.clear();
+        labelQ2.clear();
+        idLabelQ3.clear();
+        MRU.clear();
+        FIFO.clear();
+        SEGUNDA_CHANCE.clear();
+        OTIMO.clear();
+        NUR.clear();
     }
 }

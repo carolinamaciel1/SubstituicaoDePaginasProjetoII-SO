@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/ControllerGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/graph.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/NUR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/SC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/ControllerGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/ControllerGraph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/ControllerSample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/ControllerSample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/FIFO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/FIFO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/MRU.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/MRU.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/OTIMO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/OTIMO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/graph.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/graph.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/interfaceProjetoII/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ControllerSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/AlgoritmoDeSubstituicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/AlgoritmoDeSubstituicao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ControllerGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ControllerSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/FIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/FIFO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/MRU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MRU.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/OTIMO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/OTIMO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/graph.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/graph.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -207,7 +215,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -221,23 +231,18 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/sample/ControllerSample.java</url>
-          <line>87</line>
-          <properties class="sample.ControllerSample" method="GerarGrafico">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/ControllerSample.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sample/ControllerGraph.java</url>
-          <line>16</line>
+          <line>19</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/sample/ControllerGraph.java</url>
+          <line>27</line>
+          <properties class="sample.ControllerGraph" method="popularGraficoFIFO">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

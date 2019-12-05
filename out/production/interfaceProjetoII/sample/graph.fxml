@@ -26,10 +26,10 @@
          <children>
             <LineChart id="idGrafico" fx:id="idGrafico" layoutX="2.0" layoutY="18.0" prefHeight="486.0" prefWidth="709.0" title="Gráfico dos algoritmos de substituição de páginas">
               <xAxis>
-                <CategoryAxis label="Quantidade de frames" prefHeight="43.0" prefWidth="528.0" side="BOTTOM"/>
+                <CategoryAxis label="Quantidade de frames" prefHeight="47.0" prefWidth="635.0" side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Quantidade de acertos" prefHeight="316.0" prefWidth="29.0" side="LEFT" />
+                <NumberAxis label="Quantidade de acertos" prefHeight="386.0" prefWidth="76.0" side="LEFT" />
               </yAxis>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
