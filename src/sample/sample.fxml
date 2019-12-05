@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerSample">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -17,7 +17,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Pane prefHeight="530.0" prefWidth="666.0">
+        <Pane id="btnGerarGraficos" prefHeight="530.0" prefWidth="666.0">
             <children>
                 <Text layoutX="70.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simulação  de Algoritmos de Substituição de páginas " textAlignment="CENTER" wrappingWidth="487.619140625">
                     <font>
@@ -41,9 +41,10 @@
                     </font>
                 </Text>
                 <TextField id="idLabelQ2" fx:id="labelQ2" layoutX="359.0" layoutY="207.0" />
-                <Button id="btnGerarResultado" fx:id="btnGerarResultado" layoutX="159.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExecutarAlgoritmo" prefHeight="37.0" prefWidth="118.0" text="Gerar Resultado" />
-                <Button fx:id="btnSair" layoutX="334.0" layoutY="281.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" text="Sair" />
+                <Button id="btnGerarResultado" fx:id="btnGerarResultado" layoutX="70.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExecutarAlgoritmo" prefHeight="37.0" prefWidth="118.0" text="Gerar Resultado" />
+                <Button fx:id="btnSair" layoutX="433.0" layoutY="282.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" text="Sair" />
                 <Button fx:id="btnCarregarArquivo" layoutX="92.0" layoutY="109.0" mnemonicParsing="false" onAction="#CarregarArquivo" prefHeight="6.0" prefWidth="416.0" text="Carregar Arquivo " />
+            <Button layoutX="241.0" layoutY="282.0" mnemonicParsing="false" onAction="#GerarGrafico" prefHeight="37.0" prefWidth="118.0" text="Gerar Gráficos" />
             </children>
         </Pane>
     </children>
